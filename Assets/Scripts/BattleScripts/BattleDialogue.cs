@@ -20,15 +20,15 @@ public class BattleDialogue : MonoBehaviour
 
     private bool playerTurn = true;
 
-    public void SetPlayerTurn(bool val)
+    public void SetPlayerTurn(bool isPlayer)
 	{
-        attackButton.enabled = val;
-        dodgeButton.enabled = val;
-        guardButton.enabled = val;
-        equipButton.enabled = val;
-        waitButton.enabled = val;
-        fleeButton.enabled = val;
-        nextButton.enabled = !val;
+        attackButton.enabled = isPlayer;
+        dodgeButton.enabled = isPlayer;
+        guardButton.enabled = isPlayer;
+        equipButton.enabled = isPlayer;
+        waitButton.enabled = isPlayer;
+        fleeButton.enabled = isPlayer;
+        nextButton.enabled = !isPlayer;
     }
 
     //Button Actions

@@ -110,7 +110,10 @@ public class Unit : MonoBehaviour
 	}
 
 	//Turn Logic
+    public void TakeAITurn()
+	{
 
+	}
 
 
 	public void ResetStats()
@@ -124,7 +127,7 @@ public class Unit : MonoBehaviour
 	{
         if (entityNum == 0)
 		{
-
+            bsManager.TriggerLose();
 		}
 		else
 		{

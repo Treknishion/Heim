@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, NEWROUND }
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -37,6 +37,8 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Dictionary<int,Unit> entities;
 
+    int curActor;
+
     public BattleState state;
     private int selectedEntity;
     private int displayEntity;
@@ -50,10 +52,19 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         SetupBattle();
         UpdateHUDs();
+        curActor = GetActor(false, false);
     }
 
 
     //Battle Management
+    public void TriggerWin()
+	{
+
+	}
+    public void TriggerLose()
+	{
+
+	}
     private void SetupBattle()
 	{
         GameObject playerGO = Instantiate(playerPrefab);
@@ -82,6 +93,88 @@ public class BattleSystem : MonoBehaviour
 
 		}
     }
+
+    public int GetActor(bool secondHigh, bool resetAfter)
+	{
+        int curHigh = -15;
+        int secHigh = -15;
+        int highEntity = 0;
+        int secEntity = 0;
+        
+        foreach (KeyValuePair<int, Unit> entry in entities)
+		{
+            Unit unit = entry.Value;
+            if (unit.CurrAP > curHigh)
+			{
+                secHigh = curHigh;
+                secEntity = highEntity;
+                curHigh = unit.CurrAP;
+                highEntity = entry.Key;
+			}
+            else if (unit.CurrAP > secHigh){
+                secHigh = unit.CurrAP;
+                secEntity = entry.Key;
+			}
+		}
+
+        if (curHigh <= 0 && resetAfter)
+		{
+            RefreshRound();
+            return GetActor(false, true);
+		}
+        else if (secondHigh)
+		{
+            return secEntity;
+		}
+		else
+		{
+            return highEntity;
+		}
+	}
+    public void RefreshRound()
+	{
+        foreach (KeyValuePair<int, Unit> entry in entities)
+		{
+            Unit unit = entry.Value;
+            unit.ModAP(unit.MaxAP);
+		}
+	}
+
+    private void StartTurn()
+    {
+        if (state == BattleState.WON)
+		{
+            TriggerWin();
+		}
+        else if (state == BattleState.LOST)
+		{
+            TriggerLose();
+		}
+        else if (curActor == 0)
+		{
+            bDialogue.SetPlayerTurn(true);
+            foreach (KeyValuePair<int,Unit> entry in entities)
+			{
+                if (entry.Value.enemyButton != null && entry.Value.CurrHealth > 0)
+				{
+                    entry.Value.enemyButton.interactable = true;
+				}
+			}
+		}
+		else
+		{
+            bDialogue.SetPlayerTurn(false);
+            foreach (KeyValuePair<int, Unit> entry in entities)
+            {
+                if (entry.Value.enemyButton != null)
+                {
+                    entry.Value.enemyButton.interactable = false;
+                }
+            }
+            entities[curActor].TakeAITurn();
+        }
+    }
+
 
     public void UpdateHUDs()
     {
@@ -202,18 +295,16 @@ public class BattleSystem : MonoBehaviour
 	{
 
 	}
-    public void Wait()
+    public void Wait(int a)
 	{
-
+        int nextEnt = GetActor(true, false);
+        int modAmount = entities[nextEnt].CurrAP - entities[a].CurrAP - 1;
+        entities[a].ModAP(modAmount);
 	}
     public void Progress()
 	{
-
-	}
-
-    public void TriggerLose()
-	{
-
+        curActor = GetActor(false, true);
+        StartTurn();
 	}
 
 }
