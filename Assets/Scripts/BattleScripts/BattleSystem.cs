@@ -122,6 +122,12 @@ public class BattleSystem : MonoBehaviour
     //CombatActions
     public void Attack(int a, int b)
 	{
+        if (b == -1)
+		{
+            b = selectedEntity;
+		}
+
+        int damage = 0;
         Unit actor = entities[a];
         Unit target = entities[b];
         WeaponData weapon = dManager.FetchWeaponData(actor.weapon);
@@ -150,7 +156,7 @@ public class BattleSystem : MonoBehaviour
 
         if (numSuccesses > targetNum)
 		{
-            int damage = (numSuccesses - targetNum) * weapon.Dam;
+            damage = (numSuccesses - targetNum) * weapon.Dam;
             if (target.Guarding)
 			{
                 damage -= shield.BlockPow;
@@ -197,6 +203,15 @@ public class BattleSystem : MonoBehaviour
 
 	}
     public void Wait()
+	{
+
+	}
+    public void Progress()
+	{
+
+	}
+
+    public void TriggerLose()
 	{
 
 	}
