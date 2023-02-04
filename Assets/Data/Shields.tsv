@@ -1,0 +1,6 @@
+ID	Description	Art	EnemyDesc	AP	Block	Lootable
+RoundShield	RoundShield_Desc	RoundShield_Art	RoundShield_Enemy	2	3	Y
+KiteShield	KiteShield_Desc	KiteShield_Art	KiteShield_Enemy	3	5	Y
+TowerShield	TowerShield_Desc	TowerShield_Art	TowerShield_Enemy	4	7	Y
+Buckler	Buckler_Desc	Buckler_Art	Buckler_Enemy	1	2	Y
+None	NoShield_Desc	NoShield_Art	NoShield_Enemy	1	1	N
