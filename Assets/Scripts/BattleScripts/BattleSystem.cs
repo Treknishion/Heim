@@ -53,6 +53,8 @@ public class BattleSystem : MonoBehaviour
         SetupBattle();
         UpdateHUDs();
         curActor = GetActor(false, false);
+
+        Cursor.visible = true;
     }
 
 
