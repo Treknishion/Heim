@@ -1,0 +1,17 @@
+ID,Description,Art,AttackDesc,EnemyDesc,AP,Damage,Lootable
+Shortsword,Shortsword_Desc,Shortsword_Art,Shortsword_Attack,Shortsword_Enemy,3,2,Y
+Claws,Claws_Desc,Claws_Art,Claws_Attack,Claws_Enemy,2,1,N
+Greataxe,Greataxe_Desc,Greataxe_Art,Greataxe_Attack,Greataxe_Enemy,8,5,Y
+Longsword,Longsword_Desc,Longsword_Art,Longsword_Attack,Longsword_Enemy,4,3,Y
+Dagger,Dagger_Desc,Dagger_Art,Dagger_Attack,Dagger_Enemy,2,1,Y
+Cudgel,Cudgel_Desc,Cudgel_Art,Cudgel_Attack,Cudgel_Enemy,4,3,Y
+Bone,Bone_Desc,Bone_Art,Bone_Attack,Bone_Enemy,3,1,Y
+Stone,Stone_Desc,Stone_Art,Stone_Attack,Stone_Enemy,4,2,Y
+Warhammer,Warhammer_Desc,Warhammer_Art,Warhammer_Attack,Warhammer_Enemy,5,7,Y
+Waraxe,Waraxe_Desc,Waraxe_Art,Waraxe_Attack,Waraxe_Enemy,3,3,Y
+Spear,Spear_Desc,Spear_Art,Spear_Attack,Spear_Enemy,2,2,Y
+Halberd,Halberd_Desc,Halberd_Art,Halberd_Attack,Halberd_Enemy,3,3,Y
+Sling,Sling_Desc,Sling_Art,Sling_Attack,Sling_Enemy,1,1,Y
+Teeth,Teeth_Desc,Teeth_Art,Teeth_Attack,Teeth_Enemy,2,2,N
+Greatsword,Greatsword_Desc,Greatsword_Art,Greatsword_Attack,Greatsword_Enemy,5,7,Y
+BareHands,Barehands_Desc,Barehands_Art,BareHands_Attack,Barehands_Enemy,2,1,N

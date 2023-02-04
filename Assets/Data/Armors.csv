@@ -1,0 +1,11 @@
+ID,Description,Art,EnemyDesc,Armor Rating,Flee AP,Lootable
+Unarmored,Unarmored_Desc,Unarmored_Art,Unarmored_Enemy,1,1,N
+Wolfhide,Wolfhide_Desc,Wolfhide_Art,Wolfhide_Enemy,2,1,Y
+Chainmail,Chainmail_Desc,Chainmail_Art,Chainmail_Enemy,3,2,Y
+Lamellar,Lamellar_Desc,Lamellar_Art,Lamellar_Enemy,5,3,Y
+Leather,Leather_Desc,Leather_Art,Leather_Enemy,4,2,Y
+Cloth,Cloth_Desc,Cloth_Art,Cloth_Enemy,2,1,Y
+Brynja,Brynja_Desc,Brynja_Art,Brynja_Enemy,6,3,Y
+FullPlate,FullPlate_Desc,FullPlate_Art,FullPlate_Enemy,7,5,Y
+HalfPlate,HalfPlate_Desc,HalfPlate_Art,HalfPlate_Enemy,6,4,Y
+Gambeson,Gambeson_Desc,Gambeson_Art,Gambeson_Enemy,3,2,Y
