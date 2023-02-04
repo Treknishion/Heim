@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private List<string> enemyTypes;
-
-
+    //Singleton stuff
     public static GameManager instance;
     private void Awake()
     {
@@ -20,6 +18,13 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
+
+
+
+    private List<string> enemyTypes;
+    private PlayerInfo player;
+
+
 
 
     // Start is called before the first frame update
