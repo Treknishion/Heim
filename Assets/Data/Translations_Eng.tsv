@@ -1,0 +1,152 @@
+Unarmored_Desc	PLACEHOLDER
+Wolfhide_Desc	PLACEHOLDER
+Chainmail_Desc	PLACEHOLDER
+Lamellar_Desc	PLACEHOLDER
+Leather_Desc	PLACEHOLDER
+Cloth_Desc	PLACEHOLDER
+Brynja_Desc	PLACEHOLDER
+FullPlate_Desc	PLACEHOLDER
+HalfPlate_Desc	PLACEHOLDER
+Gambeson_Desc	PLACEHOLDER
+Unarmored_Art	PLACEHOLDER
+Wolfhide_Art	PLACEHOLDER
+Chainmail_Art	PLACEHOLDER
+Lamellar_Art	PLACEHOLDER
+Leather_Art	PLACEHOLDER
+Cloth_Art	PLACEHOLDER
+Brynja_Art	PLACEHOLDER
+FullPlate_Art	PLACEHOLDER
+HalfPlate_Art	PLACEHOLDER
+Gambeson_Art	PLACEHOLDER
+Hel_Desc	PLACEHOLDER
+Brute_Desc	PLACEHOLDER
+Ulf_Desc	PLACEHOLDER
+Thief_Desc	PLACEHOLDER
+BD_Desc	PLACEHOLDER
+Ber_Desc	PLACEHOLDER
+Hel_Art	PLACEHOLDER
+Brute_Art	PLACEHOLDER
+Ulf_Art	PLACEHOLDER
+Thief_Art	PLACEHOLDER
+BD_Art	PLACEHOLDER
+Ber_Art	PLACEHOLDER
+RoundShield_Desc	PLACEHOLDER
+KiteShield_Desc	PLACEHOLDER
+TowerShield_Desc	PLACEHOLDER
+Buckler_Desc	PLACEHOLDER
+NoShield_Desc	PLACEHOLDER
+RoundShield_Art	PLACEHOLDER
+KiteShield_Art	PLACEHOLDER
+TowerShield_Art	PLACEHOLDER
+Buckler_Art	PLACEHOLDER
+NoShield_Art	PLACEHOLDER
+Shortsword_Desc	PLACEHOLDER
+Claws_Desc	PLACEHOLDER
+Greataxe_Desc	PLACEHOLDER
+Longsword_Desc	PLACEHOLDER
+Dagger_Desc	PLACEHOLDER
+Cudgel_Desc	PLACEHOLDER
+Bone_Desc	PLACEHOLDER
+Stone_Desc	PLACEHOLDER
+Warhammer_Desc	PLACEHOLDER
+Waraxe_Desc	PLACEHOLDER
+Spear_Desc	PLACEHOLDER
+Halberd_Desc	PLACEHOLDER
+Sling_Desc	PLACEHOLDER
+Teeth_Desc	PLACEHOLDER
+Greatsword_Desc	PLACEHOLDER
+Shortsword_Art	PLACEHOLDER
+Claws_Art	PLACEHOLDER
+Greataxe_Art	PLACEHOLDER
+Longsword_Art	PLACEHOLDER
+Dagger_Art	PLACEHOLDER
+Cudgel_Art	PLACEHOLDER
+Bone_Art	PLACEHOLDER
+Stone_Art	PLACEHOLDER
+Warhammer_Art	PLACEHOLDER
+Waraxe_Art	PLACEHOLDER
+Spear_Art	PLACEHOLDER
+Halberd_Art	PLACEHOLDER
+Sling_Art	PLACEHOLDER
+Teeth_Art	PLACEHOLDER
+Greatsword_Art	PLACEHOLDER
+Shortsword_Attack	slashes
+Claws_Attack	attacks
+Greataxe_Attack	hefts
+Longsword_Attack	swings
+Dagger_Attack	flashes
+Cudgel_Attack	swings
+Bone_Attack	beats
+Stone_Attack	lunges
+Warhammer_Attack	heaves
+Waraxe_Attack	tears
+Spear_Attack	stabs
+Halberd_Attack	swings
+Sling_Attack	fires
+Teeth_Attack	bites
+Greatsword_Attack	hacks
+BareHands_Attack	beats
+Barehands_Desc	PLACEHOLDER
+Barehands_Art	PLACEHOLDER
+Shortsword	Shortsword
+Claws	Claws
+Greataxe	Greataxe
+Longsword	Longsword
+Dagger	Dagger
+Cudgel	Crude Cudgel
+Bone	Bone Club
+Stone	Heavy Stone
+Warhammer	Warhammer
+Waraxe	Waraxe
+Spear	Spear
+Halberd	Halberd
+Sling	Sling
+Teeth	Fangs
+Greatsword	Greatsword
+BareHands	Fists
+RoundShield	Round Shield
+KiteShield	Kite Shield
+TowerShield	Tower Shield
+Buckler	Buckler
+None	Weapon
+Unarmored	Unarmored
+Wolfhide	Wolfhide
+Chainmail	Maille
+Lamellar	Lamellar Armor
+Leather	Leather Armor
+Cloth	Common Clothing
+Brynja	Brynja
+FullPlate	Full Plate Armor
+HalfPlate	Half Plate Armor
+Gambeson	Heavy Gambeson
+Unarmored_Enemy	no Armor
+Wolfhide_Enemy	the Skin of a Wolf
+Chainmail_Enemy	a Maille Shirt
+Lamellar_Enemy	a Plated Shirt
+Leather_Enemy	a Leather Breastplate
+Cloth_Enemy	Common Rags
+Brynja_Enemy	Brynja Maille
+FullPlate_Enemy	a Full Suit of Armor
+HalfPlate_Enemy	an Iron Breastplate
+Gambeson_Enemy	a thick Gambeson
+Shortsword_Enemy	a jagged Shortsword
+Claws_Enemy	their sharp Claws
+Greataxe_Enemy	a massive Greataxe
+Longsword_Enemy	a rusted Longsword
+Dagger_Enemy	a blood-stained Dagger
+Cudgel_Enemy	a crude Cudgel
+Bone_Enemy	a cracked Femur
+Stone_Enemy	a bloodied Stone
+Warhammer_Enemy	a heavy Warhammer
+Waraxe_Enemy	a beaten Waraxe
+Spear_Enemy	a splintered Spear
+Halberd_Enemy	a long Halberd
+Sling_Enemy	a simple Sling
+Teeth_Enemy	their Fangs
+Greatsword_Enemy	a giant Greatsword
+Barehands_Enemy	their bare Fists
+RoundShield_Enemy	a wooden Shield
+KiteShield_Enemy	a large Shield
+TowerShield_Enemy	a massive Shield
+Buckler_Enemy	a fencer's Shield
+NoShield_Enemy	no shield
