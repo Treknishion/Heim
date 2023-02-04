@@ -112,7 +112,71 @@ public class Unit : MonoBehaviour
 	//Turn Logic
     public void TakeAITurn()
 	{
+        // if can't do anything, wait
+        if (CurrAP <= 0) {
+            bsManager.Wait(entityNum);
+            return;
+        }
 
+        // if low on health, try guarding or dodging
+        int dieRoll = Random.Range(1, 11);  // 1d10
+        if (dieRoll > CurrHealth)
+        {
+            dieRoll = Random.Range(1, 7); // 1d6
+            if (dieRoll > CurrHealth)
+            {
+                bsManager.Dodge(entityNum);
+            }
+            else
+            {
+                bsManager.Guard(entityNum);
+            }
+            return;
+        }
+
+        // now choose between guarding and dodging, based on whichever's cheap
+        shieldData = dManager.FetchShieldData(shield);
+        armorData = dManager.FetchArmorData(armor);
+        weaponData = dManager.FetchWeaponData(weapon);
+
+        bool dodgeDefend;
+        int defendCost;
+        if (armorData.APCost <= shieldData.APCost)
+        {
+            dodgeDefend = true;
+            defendCost = armorData.APCost;
+        }
+        else
+        {
+            dodgeDefend = false;
+            defendCost = shieldData.APCost;
+        }
+
+        // if can attack without going into deficit, do so
+        if (CurrAP >= weaponData.APCost + defendCost)
+        {
+            bsManager.Attack(entityNum, 0); // 0 for Player
+            return;
+        }
+
+        // TODO: Swapping to other equipment
+
+        // if can afford an extra defend before final attack, defend
+        if (CurrAP > defendCost)
+        {
+            if (dodgeDefend)
+            {
+                bsManager.Dodge(entityNum);
+            }
+            else
+            {
+                bsManager.Guard(entityNum);
+            }
+            return;
+        }
+
+        // by default, attack
+        bsManager.Attack(entityNum, 0); // 0 for Player
 	}
 
 
