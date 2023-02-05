@@ -77,7 +77,7 @@ Waraxe_Attack	tears
 Spear_Attack	stabs
 Halberd_Attack	swings
 Sling_Attack	fires
-Teeth_Attack	bites
+Teeth_Attack	snaps
 Greatsword_Attack	hacks
 BareHands_Attack	beats
 Barehands_Desc	PLACEHOLDER
@@ -136,7 +136,7 @@ Waraxe_Enemy	a beaten Waraxe
 Spear_Enemy	a splintered Spear
 Halberd_Enemy	a long Halberd
 Sling_Enemy	a simple Sling
-Teeth_Enemy	only its bloody maw
+Teeth_Enemy	its bloody maw
 Greatsword_Enemy	a giant Greatsword
 Barehands_Enemy	their bare Fists
 RoundShield_Enemy	a wooden Shield

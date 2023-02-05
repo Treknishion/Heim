@@ -241,14 +241,33 @@ public class BattleSystem : MonoBehaviour
 			}
             if (damage > 0)
 			{
-                if (damage > target.CurrHealth)
+                if (damage >= target.CurrHealth)
 				{
                     target.ModHealth(-target.CurrHealth);
                     target.Kill();
+                    entities.Remove(target.entityNum);
+                    if (entities.Count <= 1)
+					{
+                        TriggerWin();
+					}
+					else
+					{
+                        foreach (KeyValuePair<int,Unit> pair in entities)
+						{
+                            if (pair.Key != 0)
+							{
+                                selectedEntity = pair.Key;
+                                displayEntity = selectedEntity;
+                                break;
+							}
+						}
+					}
 				}
 				else
 				{
                     target.ModHealth(-damage);
+                    target.SetGuard(false);
+                    target.SetDodge(false);
 				}
 			}
 		}

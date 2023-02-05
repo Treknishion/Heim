@@ -78,18 +78,23 @@ public class BattleDialogue : MonoBehaviour
             attemptString = DataManager.TextKeyReplacer(attemptString, replaceKeys);
 		}
         string resultString = "";
-        if (damage > 0)
+        if (target.CurrHealth <= 0)
+		{
+            resultString = DataManager.Translate("DeathDescription");
+        }
+        else if (damage > 0)
         {
             resultString = DataManager.Translate("DamageDesc");
-            Dictionary<string, string> replacements = new Dictionary<string, string>();
-            replacements.Add("{name}", target.UnitName);
-            replacements.Add("{damage}", damage.ToString());
-            resultString = DataManager.TextKeyReplacer(resultString, replacements);
+            
         }
 		else
 		{
             resultString = DataManager.Translate("MissDesc");
 		}
+        Dictionary<string, string> replacements = new Dictionary<string, string>();
+        replacements.Add("{name}", target.UnitName);
+        replacements.Add("{damage}", damage.ToString());
+        resultString = DataManager.TextKeyReplacer(resultString, replacements);
 
         if (display != "") {
             Dictionary<string, string> displayReplace = new Dictionary<string, string>();

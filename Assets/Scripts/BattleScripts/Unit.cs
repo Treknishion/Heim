@@ -168,7 +168,7 @@ public class Unit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		}
 		else
 		{
-            enemyButton.interactable = false;
+            Destroy(this.gameObject);
 		}
 	}
 
