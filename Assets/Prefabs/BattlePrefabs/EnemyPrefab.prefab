@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bsManager: {fileID: 0}
   enemyButton: {fileID: 7883430451219967906}
+  enemyImage: {fileID: 7883430451219967905}
   entityNum: 0
   UnitName: 
   blueprint: 

@@ -245,23 +245,26 @@ public class BattleSystem : MonoBehaviour
 				{
                     target.ModHealth(-target.CurrHealth);
                     target.Kill();
-                    entities.Remove(target.entityNum);
-                    if (entities.Count <= 1)
-					{
-                        TriggerWin();
-					}
-					else
-					{
-                        foreach (KeyValuePair<int,Unit> pair in entities)
-						{
-                            if (pair.Key != 0)
-							{
-                                selectedEntity = pair.Key;
-                                displayEntity = selectedEntity;
-                                break;
-							}
-						}
-					}
+                    if (b != 0)
+                    {
+                        entities.Remove(target.entityNum);
+                        if (entities.Count <= 1)
+                        {
+                            TriggerWin();
+                        }
+                        else
+                        {
+                            foreach (KeyValuePair<int, Unit> pair in entities)
+                            {
+                                if (pair.Key != 0)
+                                {
+                                    selectedEntity = pair.Key;
+                                    displayEntity = selectedEntity;
+                                    break;
+                                }
+                            }
+                        }
+                    }
 				}
 				else
 				{

@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public BattleSystem bsManager;
 
     public Button enemyButton;
+    public Image enemyImage;
     public int entityNum;
 
     public string UnitName;
@@ -46,6 +47,9 @@ public class Unit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         weapon = data.Weapons[Random.Range(0, data.Weapons.Count - 1)];
         armor = data.Armors[Random.Range(0, data.Armors.Count - 1)];
         shield = data.Shields[Random.Range(0, data.Shields.Count - 1)];
+        string imagePath = "Art/EnemyArt/" + data.Art;
+        enemyImage.sprite = Resources.Load<Sprite>(imagePath);
+
         entityNum = eNum;
         ResetStats();
 	}
