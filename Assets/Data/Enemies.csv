@@ -1,7 +1,7 @@
 ID,Description,Art,MaxHealth,MinHealth,MaxAP,MinAP,MaxStrength,MinStrength,MaxEndur,MinEndur,Weapons,Armors,Shields,Rank
-Helwalker,Hel_Desc,Hel_Art,15,5,10,5,7,3,0,0,Shortsword;Claws;Dagger;Bone;Stone;Teeth,Unarmored;Cloth;Chainmail,None;RoundShield;Buckler,1
-Brute,Brute_Desc,Brute_Art,20,10,10,5,8,5,5,0,Claws;Teeth;Greataxe;Longsword;Warhammer,FullPlate;HalfPlate;Brynja;Lamellar,RoundShield;KiteShield;TowerShield,2
-Ulfhednar,Ulf_Desc,Ulf_Art,25,15,10,5,9,7,10,5,Halberd;Warhammer;Greataxe;Cudgel;Waraxe,Wolfhide,None,3
-Thief,Thief_Desc,Thief_Art,15,5,15,10,6,2,0,0,Dagger;Shortsword;Sling;Cudgel,Unarmored;Cloth;Gambeson;Leather,None;Buckler;RoundShield,1
-Blade Dancer,BD_Desc,BD_Art,20,10,15,10,8,5,10,5,Shortsword;Longsword;Dagger;Waraxe,Leather;Lamellar;Chainmail,Buckler;RoundShield;KiteShield,2
-Berserker,Ber_Desc,Ber_Art,30,20,15,5,9,5,15,5,Teeth;Claws;Cudgel;Greataxe;Greatsword;Warhammer,Unarmored;Wolfhide,None,3
+Helwalker,Hel_Desc,Helwalker1,15,5,10,5,7,3,0,0,Shortsword;Claws;Dagger;Bone;Stone;Teeth,Unarmored;Cloth;Chainmail,None;RoundShield;Buckler,1
+Brute,Brute_Desc,HelwalkerBrute1,20,10,10,5,8,5,5,0,Claws;Teeth;Greataxe;Longsword;Warhammer,FullPlate;HalfPlate;Brynja;Lamellar,RoundShield;KiteShield;TowerShield,2
+Ulfhednar,Ulf_Desc,Ulfhednar1,25,15,10,5,9,7,10,5,Halberd;Warhammer;Greataxe;Cudgel;Waraxe,Wolfhide,None,3
+Thief,Thief_Desc,Gaugbrjotr1,15,5,15,10,6,2,0,0,Dagger;Shortsword;Sling;Cudgel,Unarmored;Cloth;Gambeson;Leather,None;Buckler;RoundShield,1
+Blade Dancer,BD_Desc,BladeDancer1,20,10,15,10,8,5,10,5,Shortsword;Longsword;Dagger;Waraxe,Leather;Lamellar;Chainmail,Buckler;RoundShield;KiteShield,2
+Berserker,Ber_Desc,Berserkr1,30,20,15,5,9,5,15,5,Teeth;Claws;Cudgel;Greataxe;Greatsword;Warhammer,Unarmored;Wolfhide,None,3

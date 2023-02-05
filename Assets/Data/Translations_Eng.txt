@@ -24,12 +24,6 @@ Ulf_Desc	PLACEHOLDER
 Thief_Desc	PLACEHOLDER
 BD_Desc	PLACEHOLDER
 Ber_Desc	PLACEHOLDER
-Hel_Art	PLACEHOLDER
-Brute_Art	PLACEHOLDER
-Ulf_Art	PLACEHOLDER
-Thief_Art	PLACEHOLDER
-BD_Art	PLACEHOLDER
-Ber_Art	PLACEHOLDER
 RoundShield_Desc	PLACEHOLDER
 KiteShield_Desc	PLACEHOLDER
 TowerShield_Desc	PLACEHOLDER
@@ -150,3 +144,14 @@ KiteShield_Enemy	a large Shield
 TowerShield_Enemy	a massive Shield
 Buckler_Enemy	a fencer's Shield
 NoShield_Enemy	no shield
+ObserveDesc	You see {enemyDesc}. It's wearing {armorDesc} and wields {weaponDesc}. It wears{shieldDesc}. {welnessDesc}.
+AttackDisplay	{name} {attackDesc} at {targetName} with {weaponDesc}.
+DodgeDisplay	{name} prepares to evade the next attack against them.
+GuardDisplay	{name} readies to defend against the next attack against them.
+DamageDesc	{name} takes {damage} from the attack.
+MissDesc	The attack is ineffective.
+WaitDesc	{name} waits for {targetName} to make their move.
+FleeDesc	{name} turns to run.
+SuccessfulFleeDesc	They manage to get away.
+FleeFailureDesc	They're unable to escape.
+DeathDescription	{name} crumbles to the ground, dead...for now.
