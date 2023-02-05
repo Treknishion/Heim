@@ -155,3 +155,10 @@ FleeDesc	{name} turns to run.
 SuccessfulFleeDesc	They manage to get away.
 FleeFailureDesc	They're unable to escape.
 DeathDescription	{name} crumbles to the ground, dead...for now.
+Helwalker	Helwalker
+Brute	Helwalker Brute
+Ulfhednar	Ulfhednar
+Thief	Gaugbrojotr
+BladeDancer	Blade Dancer
+Berserker	Berserkr
+ActionAttemptDisplay	{ActionString} {ResultString}

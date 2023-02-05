@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class PlayerInfo
 {
-    public string Name;
+    public string PlayerName;
     public string ProfileImage;
 
     public int CurrHealth;
@@ -19,15 +19,48 @@ public class PlayerInfo : MonoBehaviour
     public string EquippedArmor;
     public string EquippedShield;
 
-    public List<string> carriedWeapons;
-    public List<string> storedWeapons;
-    public List<string> storedArmors;
-    public List<string> storedShields;
+    public List<string> carriedWeapons = new List<string>();
+    public List<string> storedWeapons = new List<string>();
+    public List<string> storedArmors = new List<string>();
+    public List<string> storedShields = new List<string>();
+
+    public PlayerInfo(string name, string image, int cHealth, int mHealth, int cEndur, int mEndur, int mAP, int Str, string eW, string eA, string eS, List<string> cW, List<string> sW, List<string> sA, List<string> sS)
+	{
+        PlayerName = name;
+        ProfileImage = image;
+        CurrHealth = cHealth;
+        MaxHealth = mHealth;
+        CurrEndur = cEndur;
+        MaxEndur = mEndur;
+        MaxAP = mAP;
+        Strength = Str;
+        EquippedWeapon = eW;
+        EquippedArmor = eA;
+        EquippedShield = eS;
+        carriedWeapons = cW;
+        storedArmors = sA;
+        storedShields = sS;
+        storedWeapons = sW;
+	}
+    public PlayerInfo()
+    {
+        PlayerName = "Hemming";
+        ProfileImage = "";
+        CurrHealth = 20;
+        MaxHealth = 20;
+        CurrEndur = 20;
+        MaxEndur = 20;
+        MaxAP = 20;
+        Strength = 8;
+        EquippedWeapon = "Shortsword";
+        EquippedArmor = "Leather";
+        EquippedShield = "roundShield";
+    }
 
     //SetPlayerData
     public void SetName(string name)
 	{
-        Name = name;
+        PlayerName = name;
 	}
     public void SetProfile(string image)
 	{

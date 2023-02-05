@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldData : MonoBehaviour
+public class ShieldData
 {
     public string ID;
     public string Desc;

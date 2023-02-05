@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-    private BattleSystem bsManager;
-    private DataManager dManager;
-    private GameManager gManager;
+    public BattleSystem bsManager;
 
     public Button enemyButton;
     public int entityNum;
@@ -36,8 +34,8 @@ public class Unit : MonoBehaviour
     //Set all data values from blueprint
     public void InitializeFromBP(string bp, int eNum)
 	{
-        EnemyData data = dManager.FetchEnemyData(bp);
-        UnitName = dManager.Translate(data.ID);
+        EnemyData data = DataManager.FetchEnemyData(bp);
+        UnitName = DataManager.Translate(data.ID);
         MaxHealth = Random.Range(data.MinHealth, data.MaxHealth);
         MaxAP = Random.Range(data.MinAP, data.MaxAP);
         MaxEndur = Random.Range(data.MinEndur, data.MaxEndur);
@@ -51,8 +49,17 @@ public class Unit : MonoBehaviour
 
     public void InitializeAsPlayer()
 	{
-
+        PlayerInfo playerdata = GameManager.FetchPlayerData();
+        UnitName = playerdata.PlayerName;
+        MaxHealth = playerdata.MaxHealth;
+        MaxAP = playerdata.MaxAP;
+        MaxEndur = playerdata.MaxEndur;
+        Strength = playerdata.Strength;
+        weapon = playerdata.EquippedWeapon;
+        armor = playerdata.EquippedArmor;
+        shield = playerdata.EquippedShield;
         entityNum = 0;
+        ResetStats();
 	}
 
     public void ChangeName(string name)
@@ -137,9 +144,7 @@ public class Unit : MonoBehaviour
 
 	private void Start()
 	{
-        bsManager = BattleSystem.instance;
-        dManager = DataManager.instance;
-        gManager = GameManager.instance;
+        bsManager = GameObject.FindAnyObjectByType<BattleSystem>();
         if (enemyButton != null)
 		{
             enemyButton.interactable = true;

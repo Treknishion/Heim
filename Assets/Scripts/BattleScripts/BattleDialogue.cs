@@ -7,7 +7,6 @@ using TMPro;
 public class BattleDialogue : MonoBehaviour
 {
     private BattleSystem bsMan;
-    private DataManager dMan;
 
     public TextMeshProUGUI dialogue;
     public Button attackButton;
@@ -18,17 +17,18 @@ public class BattleDialogue : MonoBehaviour
     public Button fleeButton;
     public Button nextButton;
 
-    private bool playerTurn = true;
+    private bool isInteract = true;
 
-    public void SetPlayerTurn(bool isPlayer)
+    public void SetIsInteract(bool interactable)
 	{
-        attackButton.enabled = isPlayer;
-        dodgeButton.enabled = isPlayer;
-        guardButton.enabled = isPlayer;
-        equipButton.enabled = isPlayer;
-        waitButton.enabled = isPlayer;
-        fleeButton.enabled = isPlayer;
-        nextButton.enabled = !isPlayer;
+        attackButton.gameObject.SetActive(interactable);
+        dodgeButton.gameObject.SetActive(interactable);
+        guardButton.gameObject.SetActive(interactable);
+        equipButton.gameObject.SetActive(interactable);
+        waitButton.gameObject.SetActive(interactable);
+        fleeButton.gameObject.SetActive(interactable);
+        nextButton.gameObject.SetActive(!interactable);
+        isInteract = interactable;
     }
 
     //Button Actions
@@ -50,7 +50,7 @@ public class BattleDialogue : MonoBehaviour
 	}
     private void TrigWait()
 	{
-        bsMan.Wait();
+        bsMan.Wait(0);
 	}
     private void TrigFlee()
 	{
@@ -64,8 +64,42 @@ public class BattleDialogue : MonoBehaviour
     //String Generators
     public void AttackText(Unit actor, Unit target, int damage)
 	{
+        string display = DataManager.Translate("ActionAttemptDisplay");
+        string attemptString = DataManager.Translate("AttackDisplay");
+        WeaponData weapon = DataManager.FetchWeaponData(actor.weapon);
+        if (attemptString != "")
+		{
+            Dictionary<string, string> replaceKeys = new Dictionary<string, string>();
+            replaceKeys.Add("{name}", actor.UnitName);
+            replaceKeys.Add("{attackDesc}", DataManager.Translate(weapon.AttackDesc));
+            replaceKeys.Add("{targetName}", target.UnitName);
+            replaceKeys.Add("{weaponDesc}", DataManager.Translate(weapon.EnemyDesc));
+            attemptString = DataManager.TextKeyReplacer(attemptString, replaceKeys);
+		}
+        string resultString = "";
+        if (damage > 0)
+        {
+            resultString = DataManager.Translate("DamageDesc");
+            Dictionary<string, string> replacements = new Dictionary<string, string>();
+            replacements.Add("{name}", target.UnitName);
+            replacements.Add("{damage}", damage.ToString());
+            resultString = DataManager.TextKeyReplacer(resultString, replacements);
+        }
+		else
+		{
+            resultString = DataManager.Translate("MissDesc");
+		}
 
-	}
+        if (display != "") {
+            Dictionary<string, string> displayReplace = new Dictionary<string, string>();
+            displayReplace.Add("{ActionString}", attemptString);
+            displayReplace.Add("{ResultString}", resultString);
+            display = DataManager.TextKeyReplacer(display, displayReplace);
+        }
+        dialogue.SetText(display);
+        SetIsInteract(false);
+
+    }
     public void HoverText(Unit hover)
 	{
 
@@ -91,8 +125,7 @@ public class BattleDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bsMan = BattleSystem.instance;
-        dMan = DataManager.instance;
+        bsMan = GameObject.FindAnyObjectByType<BattleSystem>();
         
         if (attackButton != null)
         {

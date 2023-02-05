@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
 
 
 
-    private List<string> enemyTypes;
-    private PlayerInfo player;
+    private static List<string> enemyTypes = new List<string>();
+    private static PlayerInfo player = new PlayerInfo();
 
 
 
@@ -30,11 +30,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
-    public List<string> getEnemyTypes()
+    public static List<string> getEnemyTypes()
 	{
         return enemyTypes;
+	}
+    public static PlayerInfo FetchPlayerData()
+	{
+        return player;
 	}
 }

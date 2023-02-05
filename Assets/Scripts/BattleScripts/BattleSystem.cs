@@ -7,23 +7,6 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
-    public static BattleSystem instance;
-	private void Awake()
-	{
-		//if there's an instance, delete myself
-        if (instance != null && instance != this)
-		{
-            Destroy(this);
-		}
-		else
-		{
-            instance = this;
-		}
-	}
-
-    private GameManager gManager;
-    private DataManager dManager;
-
     public List<string> enemyTypes;
 
 	public GameObject playerPrefab;
@@ -35,25 +18,23 @@ public class BattleSystem : MonoBehaviour
     public GameObject Roulette;
 
     Unit playerUnit;
-    Dictionary<int,Unit> entities;
+    Dictionary<int,Unit> entities = new Dictionary<int, Unit>();
 
     int curActor;
 
     public BattleState state;
     private int selectedEntity;
-    private int displayEntity;
+    private int displayEntity = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        gManager = GameManager.instance;
-        dManager = DataManager.instance;
 
         state = BattleState.START;
         SetupBattle();
         UpdateHUDs();
         curActor = GetActor(false, false);
-
+        StartTurn();
         Cursor.visible = true;
     }
 
@@ -76,7 +57,7 @@ public class BattleSystem : MonoBehaviour
         int enemyCount = 0;
         if (enemyTypes.Count == 0)
 		{
-            enemyTypes = gManager.getEnemyTypes();
+            enemyTypes = GameManager.getEnemyTypes();
 		}
 
         if (enemyTypes.Count != 0)
@@ -154,7 +135,7 @@ public class BattleSystem : MonoBehaviour
 		}
         else if (curActor == 0)
 		{
-            bDialogue.SetPlayerTurn(true);
+            bDialogue.SetIsInteract(true);
             foreach (KeyValuePair<int,Unit> entry in entities)
 			{
                 if (entry.Value.enemyButton != null && entry.Value.CurrHealth > 0)
@@ -165,7 +146,7 @@ public class BattleSystem : MonoBehaviour
 		}
 		else
 		{
-            bDialogue.SetPlayerTurn(false);
+            bDialogue.SetIsInteract(false);
             foreach (KeyValuePair<int, Unit> entry in entities)
             {
                 if (entry.Value.enemyButton != null)
@@ -225,9 +206,9 @@ public class BattleSystem : MonoBehaviour
         int damage = 0;
         Unit actor = entities[a];
         Unit target = entities[b];
-        WeaponData weapon = dManager.FetchWeaponData(actor.weapon);
-        ShieldData shield = dManager.FetchShieldData(target.shield);
-        ArmorData armor = dManager.FetchArmorData(target.armor);
+        WeaponData weapon = DataManager.FetchWeaponData(actor.weapon);
+        ShieldData shield = DataManager.FetchShieldData(target.shield);
+        ArmorData armor = DataManager.FetchArmorData(target.armor);
         actor.CurrAP -= weapon.APCost;
         int numSuccesses = 0;
         for (int i = 0; i < actor.Strength; i++)
@@ -269,6 +250,7 @@ public class BattleSystem : MonoBehaviour
 				}
 			}
 		}
+        bDialogue.AttackText(actor, target, damage);
         UpdateHUDs();
 	}
 
@@ -276,7 +258,7 @@ public class BattleSystem : MonoBehaviour
 	{
         Unit actor = entities[a];
         actor.SetDodge(true);
-        ArmorData armor = dManager.FetchArmorData(actor.armor);
+        ArmorData armor = DataManager.FetchArmorData(actor.armor);
         actor.CurrAP -= armor.FleeCost;
         UpdateHUDs();
 	}
@@ -285,7 +267,7 @@ public class BattleSystem : MonoBehaviour
 	{
         Unit actor = entities[a];
         actor.SetGuard(true);
-        ShieldData shield = dManager.FetchShieldData(actor.shield);
+        ShieldData shield = DataManager.FetchShieldData(actor.shield);
         actor.CurrAP -= shield.APCost;
         UpdateHUDs();
     }

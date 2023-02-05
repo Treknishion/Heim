@@ -15,7 +15,7 @@ public class BattleHUD : MonoBehaviour
 
 	public void UpdateHUD(Unit entityData)
 	{
-		Name.SetText(entityData.name);
+		Name.SetText(entityData.UnitName);
 		Health.SetText(entityData.CurrHealth + " \\ " + entityData.MaxHealth);
 		AP.SetText(entityData.CurrAP + " \\ " + entityData.MaxAP);
 		GuardS.SetActive(entityData.Guarding);

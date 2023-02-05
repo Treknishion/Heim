@@ -3,7 +3,12 @@ guid: c6265381f515f6941961739e1794ca7a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - weaponFile: {fileID: 4900000, guid: 6f60ba3b24d0b4c4fa837452716bb67e, type: 3}
+  - shieldFile: {fileID: 4900000, guid: 53f566aa56119984e9ff2fa74a6ca0dc, type: 3}
+  - enemyFile: {fileID: 4900000, guid: 8808e9c63f5c46e4f88206ae8a1ee9fb, type: 3}
+  - armorFile: {fileID: 4900000, guid: 370a564160f8ae84f97b22c0f6e135df, type: 3}
+  - translationFile: {fileID: 4900000, guid: 6eda1b77684b03e439bfdbdf20dbdadb, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

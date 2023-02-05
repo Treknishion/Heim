@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorData : MonoBehaviour
+public class ArmorData
 {
     public string ID;
     public string Desc;
