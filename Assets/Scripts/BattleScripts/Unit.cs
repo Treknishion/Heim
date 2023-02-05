@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleSystem bsManager;
 
@@ -11,6 +12,7 @@ public class Unit : MonoBehaviour
     public int entityNum;
 
     public string UnitName;
+    public string blueprint;
 
     public int MaxHealth;
     public int CurrHealth;
@@ -35,6 +37,7 @@ public class Unit : MonoBehaviour
     public void InitializeFromBP(string bp, int eNum)
 	{
         EnemyData data = DataManager.FetchEnemyData(bp);
+        blueprint = bp;
         UnitName = DataManager.Translate(data.ID);
         MaxHealth = Random.Range(data.MinHealth, data.MaxHealth);
         MaxAP = Random.Range(data.MinAP, data.MaxAP);
@@ -106,12 +109,12 @@ public class Unit : MonoBehaviour
         bsManager.SelectEnemy(entityNum);
 	}
 
-	public void OnMouseEnter()
+	public void OnPointerEnter(PointerEventData eventData)
 	{
         bsManager.HoverEnemy(entityNum);
 	}
 
-	public void OnMouseExit()
+	public void OnPointerExit(PointerEventData eventData)
 	{
         bsManager.UnHoverEnemy();
 	}
@@ -119,6 +122,33 @@ public class Unit : MonoBehaviour
 	//Turn Logic
     public void TakeAITurn()
 	{
+        int choice = Random.Range(0, 2);
+        if (choice == 0)
+		{
+            bsManager.Attack(entityNum, 0);
+		}
+		else if (choice == 1)
+		{
+            if (Dodging)
+            {
+                bsManager.Attack(entityNum, 0);
+            }
+            else
+            {
+                bsManager.Dodge(entityNum);
+            }
+		}
+		else
+		{
+            if (Guarding)
+            {
+                bsManager.Attack(entityNum, 0);
+            }
+            else
+            {
+                bsManager.Guard(entityNum);
+            }
+		}
 
 	}
 

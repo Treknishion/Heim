@@ -23,7 +23,7 @@ public class BattleSystem : MonoBehaviour
     int curActor;
 
     public BattleState state;
-    private int selectedEntity;
+    private int selectedEntity = 1;
     private int displayEntity = 1;
 
     // Start is called before the first frame update
@@ -182,12 +182,14 @@ public class BattleSystem : MonoBehaviour
 	{
         displayEntity = unit;
         UpdateHUDs();
+        bDialogue.HoverText(entities[unit]);
 	}
 
     public void UnHoverEnemy()
 	{
         displayEntity = selectedEntity;
         UpdateHUDs();
+        bDialogue.DisplayLastString();
 	}
 
     public int GetSelected()
@@ -260,6 +262,7 @@ public class BattleSystem : MonoBehaviour
         actor.SetDodge(true);
         ArmorData armor = DataManager.FetchArmorData(actor.armor);
         actor.CurrAP -= armor.FleeCost;
+        bDialogue.DodgeText(actor);
         UpdateHUDs();
 	}
 
@@ -269,6 +272,7 @@ public class BattleSystem : MonoBehaviour
         actor.SetGuard(true);
         ShieldData shield = DataManager.FetchShieldData(actor.shield);
         actor.CurrAP -= shield.APCost;
+        bDialogue.GuardText(actor);
         UpdateHUDs();
     }
     public void Flee()

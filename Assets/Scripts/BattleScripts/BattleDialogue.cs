@@ -18,6 +18,7 @@ public class BattleDialogue : MonoBehaviour
     public Button nextButton;
 
     private bool isInteract = true;
+    private string lastString = "";
 
     public void SetIsInteract(bool interactable)
 	{
@@ -59,7 +60,7 @@ public class BattleDialogue : MonoBehaviour
     private void TrigNext()
 	{
         bsMan.Progress();
-	}
+    }
 
     //String Generators
     public void AttackText(Unit actor, Unit target, int damage)
@@ -97,20 +98,65 @@ public class BattleDialogue : MonoBehaviour
             display = DataManager.TextKeyReplacer(display, displayReplace);
         }
         dialogue.SetText(display);
+        lastString = display;
         SetIsInteract(false);
-
     }
     public void HoverText(Unit hover)
 	{
+        if (hover.CurrHealth > 0 && isInteract)
+        {
+            EnemyData enemy = DataManager.FetchEnemyData(hover.blueprint);
+            WeaponData weapon = DataManager.FetchWeaponData(hover.weapon);
+            ArmorData armor = DataManager.FetchArmorData(hover.armor);
+            ShieldData shield = DataManager.FetchShieldData(hover.shield);
+            string wellnessString = "";
+            if (hover.CurrHealth > hover.MaxHealth * 0.5)
+            {
+                wellnessString = DataManager.Translate("WellString");
+            }
+            else if (hover.CurrHealth > hover.MaxHealth)
+			{
+                wellnessString = DataManager.Translate("HurtString");
+            }
+			else
+			{
+                wellnessString = DataManager.Translate("DyingString");
+            }
 
+            string displayString = DataManager.Translate("ObserveDesc");
+            Dictionary<string, string> replacement1 = new Dictionary<string, string>();
+            replacement1.Add("{enemyDesc}", DataManager.Translate(enemy.Desc));
+            replacement1.Add("{armorDesc}", DataManager.Translate(armor.EnemyDesc));
+            replacement1.Add("{weaponDesc}", DataManager.Translate(weapon.EnemyDesc));
+            replacement1.Add("{shieldDesc}", DataManager.Translate(shield.EnemyDesc));
+            replacement1.Add("{wellnessDesc}", wellnessString);
+            displayString = DataManager.TextKeyReplacer(displayString, replacement1);
+            dialogue.SetText(displayString);
+        }
 	}
+    public void DisplayLastString()
+	{
+        dialogue.SetText(lastString);
+    }
     public void DodgeText(Unit actor)
 	{
-
-	}
+        string display = DataManager.Translate("DodgeDisplay");
+        Dictionary<string, string> replacements = new Dictionary<string, string>();
+        replacements.Add("{name}",actor.UnitName);
+        display = DataManager.TextKeyReplacer(display, replacements);
+        lastString = display;
+        dialogue.SetText(display);
+        SetIsInteract(false);
+    }
     public void GuardText(Unit actor)
 	{
-
+        string display = DataManager.Translate("GuardDisplay");
+        Dictionary<string, string> replacements = new Dictionary<string, string>();
+        replacements.Add("{name}", actor.UnitName);
+        display = DataManager.TextKeyReplacer(display, replacements);
+        lastString = display;
+        dialogue.SetText(display);
+        SetIsInteract(false);
 	}
     public void WaitText(Unit actor, Unit Target)
 	{

@@ -102,7 +102,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9369753, g: 0.9528302, b: 0.78653437, a: 1}
     m_PressedColor: {r: 0.9339623, g: 0.7004717, b: 0.7004717, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9056604, g: 0.7774276, b: 0.7390531, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -134,9 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b638941f27572cf4e898a0a6eb138764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bsManager: {fileID: 0}
   enemyButton: {fileID: 7883430451219967906}
   entityNum: 0
   UnitName: 
+  blueprint: 
   MaxHealth: 0
   CurrHealth: 0
   CurrAP: 0

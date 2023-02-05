@@ -54,7 +54,7 @@ public class PlayerInfo
         Strength = 8;
         EquippedWeapon = "Shortsword";
         EquippedArmor = "Leather";
-        EquippedShield = "roundShield";
+        EquippedShield = "RoundShield";
     }
 
     //SetPlayerData

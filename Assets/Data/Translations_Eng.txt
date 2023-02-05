@@ -18,12 +18,12 @@ Brynja_Art	PLACEHOLDER
 FullPlate_Art	PLACEHOLDER
 HalfPlate_Art	PLACEHOLDER
 Gambeson_Art	PLACEHOLDER
-Hel_Desc	PLACEHOLDER
-Brute_Desc	PLACEHOLDER
-Ulf_Desc	PLACEHOLDER
-Thief_Desc	PLACEHOLDER
-BD_Desc	PLACEHOLDER
-Ber_Desc	PLACEHOLDER
+Hel_Desc	a thin, emaciated denizen of Hel, bound in vines of mistletoe
+Brute_Desc	a heavyset Helwalker with a vicious look in its eye
+Ulf_Desc	something with a savage glint in its eye, more animal than man
+Thief_Desc	a light and shifty corpse robber, eying your equipment with envy
+BD_Desc	a well-trained mercenary moving languidly
+Ber_Desc	a giant bear of a man, seething with battle frenzy
 RoundShield_Desc	PLACEHOLDER
 KiteShield_Desc	PLACEHOLDER
 TowerShield_Desc	PLACEHOLDER
@@ -124,7 +124,7 @@ FullPlate_Enemy	a Full Suit of Armor
 HalfPlate_Enemy	an Iron Breastplate
 Gambeson_Enemy	a thick Gambeson
 Shortsword_Enemy	a jagged Shortsword
-Claws_Enemy	their sharp Claws
+Claws_Enemy	its sharp Claws
 Greataxe_Enemy	a massive Greataxe
 Longsword_Enemy	a rusted Longsword
 Dagger_Enemy	a blood-stained Dagger
@@ -136,7 +136,7 @@ Waraxe_Enemy	a beaten Waraxe
 Spear_Enemy	a splintered Spear
 Halberd_Enemy	a long Halberd
 Sling_Enemy	a simple Sling
-Teeth_Enemy	their Fangs
+Teeth_Enemy	only its bloody maw
 Greatsword_Enemy	a giant Greatsword
 Barehands_Enemy	their bare Fists
 RoundShield_Enemy	a wooden Shield
@@ -144,7 +144,7 @@ KiteShield_Enemy	a large Shield
 TowerShield_Enemy	a massive Shield
 Buckler_Enemy	a fencer's Shield
 NoShield_Enemy	no shield
-ObserveDesc	You see {enemyDesc}. It's wearing {armorDesc} and wields {weaponDesc}. It wears{shieldDesc}. {welnessDesc}.
+ObserveDesc	You see {enemyDesc}. It's wearing {armorDesc} and wields {weaponDesc}. It wears {shieldDesc}. {wellnessDesc}.
 AttackDisplay	{name} {attackDesc} at {targetName} with {weaponDesc}.
 DodgeDisplay	{name} prepares to evade the next attack against them.
 GuardDisplay	{name} readies to defend against the next attack against them.
@@ -162,3 +162,6 @@ Thief	Gaugbrojotr
 BladeDancer	Blade Dancer
 Berserker	Berserkr
 ActionAttemptDisplay	{ActionString} {ResultString}
+WellString	It's looking healthy and ready to fight
+HurtString	It seems to be wounded
+DyingString	It hangs on the brink of death
